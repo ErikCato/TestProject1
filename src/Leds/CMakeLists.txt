@@ -42,14 +42,13 @@ add_custom_command(
 
 add_executable(ledtest ${LEDTEST_SOURCE_FILES})
 
-
-
 get_target_property(test_binary ledtest LOCATION)
-add_custom_target(tester ALL DEPENDS ledtest)
+add_custom_target(tester DEPENDS ledtest)
 add_custom_command(
     TARGET tester
-    COMMAND ${test_binary}  > ${LEDS_SOURCE_DIR}/test/Testleds.test || true
-    DEPENDS olsr-test
+    #COMMAND ${test_binary}  > ${LEDS_SOURCE_DIR}/test/Testleds.test || true
+    COMMAND ${test_binary} > ${LEDS_SOURCE_DIR}/test/Testleds.test && notify-send "Success!"
+    DEPENDS ledtest
 )
 
 
@@ -63,7 +62,6 @@ add_custom_target(DO_LEDS_MOCK_FILES DEPENDS ${LEDS_MOCK_FILES})
 add_custom_target(LEDS_REST_RUNNER DEPENDS ${LEDS_SOURCE_DIR}/test/Testleds_Runner.c )
 
 add_dependencies(ledtest DO_LEDS_MOCK_FILES LEDS_REST_RUNNER)
-
 
 #add_custom_target(LEDS_TEST_RESULT DEPENDS ${LEDS_SOURCE_DIR}/test/Testleds.test)
 

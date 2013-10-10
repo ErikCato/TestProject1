@@ -3,11 +3,10 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 #Name your project here
 project(HELLO)
-enable_testing()
 
-
-add_subdirectory(src)
 add_subdirectory(lib)
+add_subdirectory(src)
+
 
 set_target_properties(gtest
     PROPERTIES
@@ -15,7 +14,6 @@ set_target_properties(gtest
     LIBRARY_OUTPUT_DIRECTORY "${gtest_SOURCE_DIR}"
     RUNTIME_OUTPUT_DIRECTORY "${gtest_SOURCE_DIR}"
     CMAKE_BUILD_TYPE "Release"
-    
 )
 
 set_target_properties(gtest_main
@@ -24,7 +22,6 @@ set_target_properties(gtest_main
     LIBRARY_OUTPUT_DIRECTORY "${gtest_SOURCE_DIR}"
     RUNTIME_OUTPUT_DIRECTORY "${gtest_SOURCE_DIR}"
     CMAKE_BUILD_TYPE "Release"
-    
 )
 
 set_target_properties(gmock
@@ -33,7 +30,6 @@ set_target_properties(gmock
     LIBRARY_OUTPUT_DIRECTORY "${gmock_SOURCE_DIR}"
     RUNTIME_OUTPUT_DIRECTORY "${gmock_SOURCE_DIR}"
     CMAKE_BUILD_TYPE "Release"
-    
 )
 
 set_target_properties(gmock_main
