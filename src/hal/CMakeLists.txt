@@ -1,0 +1,6 @@
+set(APPLICATION_SOURCE_FILES src/hal.c PARENT_SCOPE)
+
+
+
+
+

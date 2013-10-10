@@ -1,0 +1,23 @@
+#!/bin/bash
+# Generate new module for TDD with Unity
+
+PARENT_MODULE=$1
+MODULE_NAME=$2
+PATH_FROM_SCRIPT="../../.."
+#SRC_PATH="${PATH_FROM_SCRIPT}/${PARENT_MODULE}/${MODULE_NAME}/src"
+#TEST_PATH="${PATH_FROM_SCRIPT}/${PARENT_MODULE}/${MODULE_NAME}/test"
+
+SRC_PATH="${PARENT_MODULE}/${MODULE_NAME}/src"
+TEST_PATH="${PARENT_MODULE}/${MODULE_NAME}/test"
+
+
+echo "$MODULE_NAME"
+echo "$SRC_PATH"
+echo "$TEST_PATH"
+
+mkdir -p "${PARENT_MODULE}/${MODULE_NAME}/src"
+mkdir -p "${PARENT_MODULE}/${MODULE_NAME}/test"
+
+ruby lib/Unity-master/auto/generate_module.rb -s$SRC_PATH -t$TEST_PATH "$MODULE_NAME"
+#echo lib/Unity-master/auto/generate_module.rb -s\"$SRC_PATH\" -t\"$TEST_PATH\" "$MODULE_NAME"
+ 
