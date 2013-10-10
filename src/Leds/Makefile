@@ -102,6 +102,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/rule:
+	cd /home/ercat1/myws/test1 && $(MAKE) -f CMakeFiles/Makefile2 src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/rule
+.PHONY : src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/rule
+
+# Convenience name for target.
+DO_LEDS_MOCK_FILES: src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/rule
+.PHONY : DO_LEDS_MOCK_FILES
+
+# fast build rule for target.
+DO_LEDS_MOCK_FILES/fast:
+	cd /home/ercat1/myws/test1 && $(MAKE) -f src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/build.make src/Leds/CMakeFiles/DO_LEDS_MOCK_FILES.dir/build
+.PHONY : DO_LEDS_MOCK_FILES/fast
+
+# Convenience name for target.
+src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/rule:
+	cd /home/ercat1/myws/test1 && $(MAKE) -f CMakeFiles/Makefile2 src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/rule
+.PHONY : src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/rule
+
+# Convenience name for target.
+LEDS_REST_RUNNER: src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/rule
+.PHONY : LEDS_REST_RUNNER
+
+# fast build rule for target.
+LEDS_REST_RUNNER/fast:
+	cd /home/ercat1/myws/test1 && $(MAKE) -f src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/build.make src/Leds/CMakeFiles/LEDS_REST_RUNNER.dir/build
+.PHONY : LEDS_REST_RUNNER/fast
+
+# Convenience name for target.
 src/Leds/CMakeFiles/LEDTEST.dir/rule:
 	cd /home/ercat1/myws/test1 && $(MAKE) -f CMakeFiles/Makefile2 src/Leds/CMakeFiles/LEDTEST.dir/rule
 .PHONY : src/Leds/CMakeFiles/LEDTEST.dir/rule
@@ -114,20 +142,6 @@ LEDTEST: src/Leds/CMakeFiles/LEDTEST.dir/rule
 LEDTEST/fast:
 	cd /home/ercat1/myws/test1 && $(MAKE) -f src/Leds/CMakeFiles/LEDTEST.dir/build.make src/Leds/CMakeFiles/LEDTEST.dir/build
 .PHONY : LEDTEST/fast
-
-# Convenience name for target.
-src/Leds/CMakeFiles/do_trofiles.dir/rule:
-	cd /home/ercat1/myws/test1 && $(MAKE) -f CMakeFiles/Makefile2 src/Leds/CMakeFiles/do_trofiles.dir/rule
-.PHONY : src/Leds/CMakeFiles/do_trofiles.dir/rule
-
-# Convenience name for target.
-do_trofiles: src/Leds/CMakeFiles/do_trofiles.dir/rule
-.PHONY : do_trofiles
-
-# fast build rule for target.
-do_trofiles/fast:
-	cd /home/ercat1/myws/test1 && $(MAKE) -f src/Leds/CMakeFiles/do_trofiles.dir/build.make src/Leds/CMakeFiles/do_trofiles.dir/build
-.PHONY : do_trofiles/fast
 
 __/__/lib/CMock-master/src/cmock.o: __/__/lib/CMock-master/src/cmock.c.o
 .PHONY : __/__/lib/CMock-master/src/cmock.o
@@ -279,8 +293,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... DO_LEDS_MOCK_FILES"
+	@echo "... LEDS_REST_RUNNER"
 	@echo "... LEDTEST"
-	@echo "... do_trofiles"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... __/__/lib/CMock-master/src/cmock.o"

@@ -65,11 +65,11 @@ void resetTest()
 //=======MAIN=====
 int main(void)
 {
-  Unity.TestFile = "Testleds.c";
+  Unity.TestFile = "test/Testleds.c";
   UnityBegin();
-  RUN_TEST(test_leds_IsLedOn, 13);
-  RUN_TEST(test_leds_TurnOnLed_2, 19);
-  RUN_TEST(test_leds_TurnOnLed_16, 27);
+  RUN_TEST(test_leds_IsLedOn, 15);
+  RUN_TEST(test_leds_TurnOnLed_2, 21);
+  RUN_TEST(test_leds_TurnOnLed_16, 29);
 
   return (UnityEnd());
 }

@@ -40,6 +40,7 @@ set_target_properties( gmock_main
     LIBRARY_OUTPUT_DIRECTORY "${gmock_SOURCE_DIR}"
     RUNTIME_OUTPUT_DIRECTORY "${gmock_SOURCE_DIR}"
     CMAKE_BUILD_TYPE "Release"
-    
 )
+
+set(UNITY_SRC_DIR ${USER_LIB_SOURCE_DIR}/Unity-master/src)
 
