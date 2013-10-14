@@ -65,7 +65,7 @@ void resetTest()
 //=======MAIN=====
 int main(void)
 {
-  Unity.TestFile = "test/Testleds.c";
+  Unity.TestFile = "/home/catoe/Projects/TestProject1/src/Leds/test/Testleds.c";
   UnityBegin();
   RUN_TEST(test_leds_IsLedOn, 15);
   RUN_TEST(test_leds_TurnOnLed_2, 21);

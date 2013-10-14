@@ -11,7 +11,12 @@ add_subdirectory("hal")
 add_subdirectory("Leds")
 add_subdirectory("mock")
 
-#add_executable(hello ${hello_source_files})
+
+include_directories(${APPLICATION_HEADER_DIRS})
+
+add_executable(hello ${APPLICATION_SOURCE_FILES})
+
+#add_dependencies(hello LEDS_TEST_RESULT)
 
 
 

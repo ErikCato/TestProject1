@@ -1,5 +1,8 @@
 project(LEDS)
 
+set(APPLICATION_SOURCE_FILES ${APPLICATION_SOURCE_FILES} ${LEDS_SOURCE_DIR}/src/leds.c PARENT_SCOPE)
+set(APPLICATION_HEADER_DIRS ${APPLICATION_HEADER_DIRS} ${LEDS_SOURCE_DIR}/src/ PARENT_SCOPE)
+
 set(LEDTEST_SOURCE_FILES
     ${LEDS_SOURCE_DIR}/test/Testleds_Runner.c 
     ${LEDS_SOURCE_DIR}/test/Testleds.c 
@@ -27,24 +30,46 @@ set(LEDS_MOCK_FILES
 
 add_custom_command(
 	OUTPUT ${LEDS_MOCK_FILES}
-	COMMAND ruby  ${HELLO_SOURCE_DIR}/lib/CMock-master/lib/cmock.rb --mock_path="${MOCKS_SOURCE_DIR}" ../hal/src/hal.h
+	COMMAND ruby ${CMOCK_SCRIPT_DIR}/cmock.rb --mock_path="${MOCKS_SOURCE_DIR}" ${HELLO_SOURCE_DIR}/src/hal/src/hal.h
 	DEPENDS ../hal/src/hal.h
 )
 
-#ruby ../../lib/Unity-master/auto/generate_test_runner.rb test/Testleds.c test/Testleds_Runner.c
-
 add_custom_command(
 	OUTPUT ${LEDS_SOURCE_DIR}/test/Testleds_Runner.c
-	COMMAND ruby  ${HELLO_SOURCE_DIR}/lib/Unity-master/auto/generate_test_runner.rb  test/Testleds.c test/Testleds_Runner.c
+	COMMAND ruby ${UNITY_SCRIPT_DIR}/generate_test_runner.rb ${LEDS_SOURCE_DIR}/test/Testleds.c ${LEDS_SOURCE_DIR}/test/Testleds_Runner.c
 	DEPENDS ${LEDS_SOURCE_DIR}/test/Testleds.c
 )
 
-add_executable(LEDTEST ${LEDTEST_SOURCE_FILES})
+add_executable(ledtest ${LEDTEST_SOURCE_FILES})
+
+
+
+get_target_property(test_binary ledtest LOCATION)
+add_custom_target(tester ALL DEPENDS ledtest)
+add_custom_command(
+    TARGET tester
+    COMMAND ${test_binary}  > ${LEDS_SOURCE_DIR}/test/Testleds.test || true
+    DEPENDS olsr-test
+)
+
+
+#add_custom_command(
+#	OUTPUT ${LEDS_SOURCE_DIR}/test/Testleds.test
+#	COMMAND ${LEDS_BINARY_DIR}/ledtest > ${LEDS_SOURCE_DIR}/test/Testleds.test
+#	DEPENDS ledtest
+#)
 
 add_custom_target(DO_LEDS_MOCK_FILES DEPENDS ${LEDS_MOCK_FILES})
 add_custom_target(LEDS_REST_RUNNER DEPENDS ${LEDS_SOURCE_DIR}/test/Testleds_Runner.c )
 
-add_dependencies(LEDTEST DO_LEDS_MOCK_FILES LEDS_REST_RUNNER)
+add_dependencies(ledtest DO_LEDS_MOCK_FILES LEDS_REST_RUNNER)
+
+
+#add_custom_target(LEDS_TEST_RESULT DEPENDS ${LEDS_SOURCE_DIR}/test/Testleds.test)
+
+
+
+
 
 
 

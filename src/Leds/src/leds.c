@@ -1,6 +1,7 @@
 #include "hal.h"
 
 
+/* */
 unsigned char IsLedOn(unsigned char led_number)
 {
 	if (GetRegisterValue() & (1 << led_number))

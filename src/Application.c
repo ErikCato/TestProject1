@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "functions.h"
+#include "leds.h"
 
 int main(void)
 {
